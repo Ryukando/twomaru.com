@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Twomaru</title>
+
+  <style>
+    :root{
+      --bg: #231F20;     
+      --bg2:#2B2728;       
+      --bg3:#171415;       
+      --gold:#C09637;    
+    }
+
+    html, body { height: 100%; margin: 0; }
+
+    body{
+      background:
+        radial-gradient(80vmin 80vmin at 50% 45%, var(--bg2) 0%, var(--bg) 55%, var(--bg3) 100%);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      overflow:hidden;
+    }
+
+    
+    body::before{
+      content:"";
+      position:fixed; inset:0;
+      background:
+        radial-gradient(circle at 20% 30%, rgba(255,255,255,0.025), transparent 35%),
+        radial-gradient(circle at 80% 70%, rgba(255,255,255,0.02), transparent 40%);
+      mix-blend-mode: soft-light;
+      pointer-events:none;
+    }
+
+  
+    .wrap{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:22px;
+      animation: fadeUp 2.4s ease-out both;
+    }
+
+    img{
+      max-width:min(360px, 60vw);
+      max-height:60vh;
+      height:auto;
+      object-fit:contain;
+      
+      filter: drop-shadow(0 18px 40px rgba(0,0,0,0.55));
+    }
+
+  
+    .hint{
+      width:6px; height:6px;
+      border-radius:999px;
+      background: var(--gold);
+      opacity:0.22;
+      box-shadow: 0 0 18px rgba(192,150,55,0.25);
+    }
+
+    @keyframes fadeUp{
+      from { opacity:0; transform: translateY(8px); }
+      to   { opacity:1; transform: translateY(0); }
+    }
+
+   
+    @media (prefers-reduced-motion: reduce){
+      .wrap{ animation:none; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <img src="logo.png" alt="Twomaru Logo" />
+    <div class="hint"></div>
+  </div>
+</body>
+</html>
